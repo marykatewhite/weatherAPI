@@ -63,27 +63,47 @@ function getWeatherData() {
                 method: "GET"
             })
                 .then(function (response) {
+                    var forecastTimes = [0, 7, 15, 31, 39];
+                    var i;
+                    for (i = 0; i < forecastTimes.length; i++) {
+                        $('#forecastDisplay').append("<div class='col-lg-2' id='time2'>" + "Time: " + response.list[forecastTimes].dt_txt + "</div>");
+                        $('#forecastDisplay').append("<div class='col-lg-2' id='temp2'>" + "Temp: " + response.list[forecastTimes].main.temp + "</div>");
+                        $('#forecastDisplay').append("<div class='col-lg-2' id='humidity2'>" + "Humidity: " + response.list[forecastTimes].main.humidity + "</div>");
+                        $('#forecastDisplay').append("<div class='col-lg-2' id='icon2'>" + "Icon: " + response.list[forecastTimes].weather[0].main + "</div>");
+                        $('#forecastDisplay').append("<br>");
+                    }
 
-                    console.log('DAY 1');
-
-                    console.log("Time: " + response.list[0].dt_txt);
-                    console.log("Temp: " + response.list[0].main.temp);
-                    console.log("Humidity: " + response.list[0].main.humidity);
-                    console.log("Icon: " + response.list[0].weather[0].main);
 
                     // Displaying FORECAST results
-                    $("#time1").text("Time: " + response.list[0].dt_txt);
-                    $("#temp1").text("Temperature: " + response.list[0].main.temp);
-                    $("#humidity1").text("Current Humidity: " + response.list[0].main.humidity);
-                    $("#icon1").text("Conditions: " + response.list[0].weather[0].main);
+                    // $("#time1").text("Time: " + response.list[0].dt_txt);
+                    // $("#temp1").text("Temperature: " + response.list[0].main.temp);
+                    // $("#humidity1").text("Current Humidity: " + response.list[0].main.humidity);
+                    // $("#icon1").text("icon: " + response.list[0].weather[0].main);
 
+                    // $('#forecastDisplay').append("<div class='col-lg-2' id='time2'>" + "Time: " + response.list[7].dt_txt + "</div>");
+                    // $('#forecastDisplay').append("<div class='col-lg-2' id='temp2'>" + "Temp: " + response.list[7].main.temp + "</div>");
+                    // $('#forecastDisplay').append("<div class='col-lg-2' id='humidity2'>" + "Humidity: " + response.list[7].main.humidity + "</div>");
+                    // $('#forecastDisplay').append("<div class='col-lg-2' id='icon2'>" + "Icon: " + response.list[7].weather[0].main + "</div>");
 
-                    console.log('DAY 2');
+                    // $('#forecastDisplay').append("<div class='col-lg-2' id='time2'>" + "Time: " + response.list[15].dt_txt + "</div>");
+                    // $('#forecastDisplay').append("<div class='col-lg-2' id='temp2'>" + "Temp: " + response.list[15].main.temp + "</div>");
+                    // $('#forecastDisplay').append("<div class='col-lg-2' id='humidity2'>" + "Humidity: " + response.list[15].main.humidity + "</div>");
+                    // $('#forecastDisplay').append("<div class='col-lg-2' id='icon2'>" + "Icon: " + response.list[15].weather[0].main + "</div>");
 
-                    console.log("Time: " + response.list[8].dt_txt);
-                    console.log("Temp: " + response.list[8].main.temp);
-                    console.log("Humidity: " + response.list[8].main.humidity);
-                    console.log("Icon: " + response.list[8].weather[0].main);
+                    // $('#forecastDisplay').append("<div class='col-lg-2' id='time2'>" + "Time: " + response.list[23].dt_txt + "</div>");
+                    // $('#forecastDisplay').append("<div class='col-lg-2' id='temp2'>" + "Temp: " + response.list[23].main.temp + "</div>");
+                    // $('#forecastDisplay').append("<div class='col-lg-2' id='humidity2'>" + "Humidity: " + response.list[23].main.humidity + "</div>");
+                    // $('#forecastDisplay').append("<div class='col-lg-2' id='icon2'>" + "Icon: " + response.list[23].weather[0].main + "</div>");
+
+                    // $('#forecastDisplay').append("<div class='col-lg-2' id='time2'>" + "Time: " + response.list[31].dt_txt + "</div>");
+                    // $('#forecastDisplay').append("<div class='col-lg-2' id='temp2'>" + "Temp: " + response.list[31].main.temp + "</div>");
+                    // $('#forecastDisplay').append("<div class='col-lg-2' id='humidity2'>" + "Humidity: " + response.list[31].main.humidity + "</div>");
+                    // $('#forecastDisplay').append("<div class='col-lg-2' id='icon2'>" + "Icon: " + response.list[31].weather[0].main + "</div>");
+
+                    // $('#forecastDisplay').append("<div class='col-lg-2' id='time2'>" + "Time: " + response.list[39].dt_txt + "</div>");
+                    // $('#forecastDisplay').append("<div class='col-lg-2' id='temp2'>" + "Temp: " + response.list[39].main.temp + "</div>");
+                    // $('#forecastDisplay').append("<div class='col-lg-2' id='humidity2'>" + "Humidity: " + response.list[39].main.humidity + "</div>");
+                    // $('#forecastDisplay').append("<div class='col-lg-2' id='icon2'>" + "Icon: " + response.list[39].weather[0].main + "</div>");
 
                 });
 
@@ -92,9 +112,6 @@ function getWeatherData() {
 
 }
 
-
-// UV search using lat and lon
-// uvSearchURL = 'api.openweathermap.org/data/2.5/uvi?lat=' + response.coord.lat + '&amp;lon=' + response.coord.lon
 
 
 searchButton.on("click", getWeatherData);
