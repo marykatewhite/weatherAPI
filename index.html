@@ -16,10 +16,9 @@
 
     <div class='container'>
 
+        <div class="row">
 
-        <div class='row'>
-
-            <div class='col-lg-12'>
+            <div class='col-lg-4 float-lg-left top'>
                 Search for a city:
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="" id="citySearchInput">
@@ -28,15 +27,9 @@
                     </div>
                 </div>
 
-                <div class="pastCities">
-
-                </div>
-
             </div>
-        </div>
 
-        <div class="row">
-            <div class='col-lg-12' id='resultsDisplayer'>
+            <div class='col-lg-8 float-lg-right top' id='resultsDisplayer'>
                 <div id="cityNameDisplay"></div>
                 <div id="cityDateDisplay"></div>
                 <div id="temperatureDisplay"></div>
@@ -44,17 +37,28 @@
                 <div id="windSpeedDisplay"></div>
                 <div id="uvIndexDisplay"></div>
             </div>
+
         </div>
-        
+
         <div class="row">
-            <div class='col-lg-12' id="forecastDisplay">
+
+            <div class="col-lg-2 float-lg-left" id="pastCities">
+                <h3>Search history:</h3>
+                <ul><span id="searchHistory"></span>
+                </ul>
+            </div>
+
+
+            <div class='col-lg-10 container bottom'>
                 <h3>Forecast</h3>
-                <div class='col-lg-2' id='time1'></div>
-                <div class='col-lg-2' id='temp1'></div>
-                <div class='col-lg-2' id='humidity1'></div>
-                <div class='col-lg-2' id='icon1'></div>
+                <div class="row" >
+                    <ul id="forecastDisplay">
+                    </ul>
+                </div>
             </div>
         </div>
+
+    </div>
 
 
 
